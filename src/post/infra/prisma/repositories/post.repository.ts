@@ -1,10 +1,11 @@
 import { Inject, Injectable } from '@nestjs/common';
 import { Post, Prisma, PrismaClient } from '@prisma/client';
-import { PrismaService } from './prisma.service';
+import { PrismaService } from 'src/infra/prisma/prisma.service';
 
 @Injectable()
-export class PostService{
+export class PostRepository{
   constructor(
+    @Inject()
     private prisma: PrismaService){}
 
   async findPost(where: Prisma.PostWhereUniqueInput):Promise<Post | null >{
@@ -30,7 +31,8 @@ export class PostService{
   }
   async create(data:Prisma.PostCreateInput):Promise<Post>{
      return await this.prisma.post.create({
-      data
+      data,
+      
     })
   }
   async update(where: Prisma.PostWhereUniqueInput, data: Prisma.PostUpdateInput):Promise<Post>{
