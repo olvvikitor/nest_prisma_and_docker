@@ -2,6 +2,7 @@ import { Inject, Injectable, NotFoundException } from '@nestjs/common';
 import { Post } from '../domain/entities/post';
 import { CreatePostDto } from '../domain/dto/create-post-dto';
 import { UserRepository } from 'src/user/infra/prisma/repository/user.repository';
+import { PostRepository } from '../infra/prisma/repositories/post.repository';
 
 @Injectable()
 export class PostService{

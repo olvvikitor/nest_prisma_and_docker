@@ -4,7 +4,7 @@ services:
   pgsql:
     image: postgres:alpine
     ports:
-      - '5432:5432'
+      - '5434:5432'
     container_name: 'pgsql'
     restart: always
     volumes:

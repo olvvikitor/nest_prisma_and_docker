@@ -19,4 +19,7 @@ export class UserService{
       name: createUserDto.name
     })
   }
+  async getAll():Promise<User[]>{
+    return await this.userRepository.findAllUsers({})
+  }
 }
